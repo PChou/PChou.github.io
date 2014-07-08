@@ -1,15 +1,20 @@
-@import url(http://fonts.googleapis.com/css?family=Ubuntu:500&subset=latin,latin-ext);
+@font-face {
+  font-family: 'iconfont';
+  src: url("http://at.alicdn.com/t/font_1395307880_4954178.eot");
+  /* IE9*/
+  src: url("http://at.alicdn.com/t/font_1395307880_4954178.eot?#iefix") format("embedded-opentype"), url("http://at.alicdn.com/t/font_1395307880_9161122.woff") format("woff"), url("http://at.alicdn.com/t/font_1395307880_4053228.ttf") format("truetype"), url("http://at.alicdn.com/t/font_1395307880_9707928.svg#iconfont") format("svg");
+  /* iOS 4.1- */ }
 
-body{
-	color: #2c3e50;
-}
+.iconfont {
+  font-family: 'iconfont'; }
 
 .sidebar {
-	position: fixed;
-	top: 0px;
-	padding-top: 10%;
-	background-color: #2c3e50;
+	-position: fixed;
+	-top: 0px;
+	padding-top: 3%;
+	background-color: #333333;
 	color: #fff;
+	height: :100%;
 }
 
 .sidebar-header {
@@ -26,6 +31,64 @@ body{
 	color: #fff;
 }
 
+.sidebar .navigator a {
+    padding: 10px;
+    font-family: 'iconfont';
+    -display: inline-block;
+    border-radius: 50% 50% 50% 50%;
+    color: #aaaaaa;
+    border: 1px solid #000;
+    box-shadow: inset 0 1px 10px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.1), 0 -1px 0 rgba(0, 0, 0, 0.5);
+    text-decoration: none; 
+}
+
+.sidebar .navigator a:hover {
+	color: white;
+}
+
+.sidebar .category ul {
+      list-style: none;
+      margin: 40px 40px;
+      -webkit-padding-start: 0px; }
+      .sidebar .category ul li {
+        border-bottom: 1px solid #aaaaaa;
+        height: 40px; }
+        .sidebar .category ul li a {
+          display: block;
+          line-height: 40px;
+          text-decoration: none;
+          color: #aaaaaa;
+          width: 100%; }
+          .sidebar .category ul li a:hover, .sidebar .category ul li a:focus {
+            color: #fff; }
+            .sidebar .category ul li a:hover span, .sidebar .category ul li a:focus span {
+              border: 1px solid #fff; }
+          .sidebar .category ul li a span {
+            display: inline-block;
+            float: right;
+            border: 1px solid #aaaaaa;
+            border-radius: 15px 15px 15px 15px;
+            padding: 0px 8px;
+            line-height: 20px;
+            margin-top: 10px; }
+
+.sidebar .tags {
+	line-height: 1.5; margin: 40px 40px; }
+  .sidebar .tags a {
+    color: #aaaaaa;
+    display: inline;
+    text-decoration: none; }
+    .sidebar .tags a:focus, .sidebar .tags a:hover {
+      color: white;
+      text-decoration: underline; }
+.sidebar .foot a {
+  color: #aaaaaa;
+  text-decoration: none; }
+  .sidebar .foot a:focus, .sidebar .foot a:hover {
+    color: white; }
+
+
+
 a.nav-link {
 	padding-bottom: 5px;
 	padding-top: 7px;
@@ -37,7 +100,6 @@ a.nav-link i{
 a.nav-link:hover { color: #777 }
 
 #bio {
-	font-family: "Courier New", Courier, monospace;
 	font-size: 11px;
 	margin: 0 auto;
 	margin-bottom: 10px;
@@ -68,6 +130,11 @@ article .share .twitter:hover {
 #contact-list li:hover .fa-rss {
 	color: #e74c3c;
 }
+
+.page-header {
+	padding: 0 5% 0;
+}
+
 article .share .facebook:hover {
 	color: #43609C;
 	border-color: #43609C;
@@ -81,10 +148,6 @@ article .share .gplus:hover {
 	padding-bottom: 10px;
 }
 
-.page-header {
-	color: #e74c3c;
-	text-shadow: 1px 1px 1px rgba(150, 150, 150, 1);
-}
 
 article{
 	margin-bottom: 40px;
@@ -95,11 +158,11 @@ article{
 	margin-bottom: 20px;
 }
 
-.post-date {
+/*.post-date {
 	text-transform: uppercase;
 	font-size: 14px;
 	letter-spacing: 3px;
-}
+}*/
 
 article {
 	padding: 0 5% 0;
@@ -109,29 +172,6 @@ article.home div a, article.home pre a { color: #2c3e50; }
 article.home div a:hover, article.home pre a:hover { color: #2c3e50; text-decoration: none; }
 article img { max-width: 100%; }
 
-h1,h2,h3,h4,h5,h6 { font-family: 'Ubuntu', sans-serif; }
-article.home h1,
-article.home h2,
-article.home h3,
-article.home h4,
-article.home h5,
-article.home h6 {
-	font-family: 'Ubuntu', sans-serif;
-	color: #f2756a;
-}
-
-article.home h1 a,
-article.home h2 a,
-article.home h3 a,
-article.home h4 a {
-	color: #f2756a;
-}
-article.home h1 a:hover,
-article.home h2 a:hover,
-article.home h3 a:hover,
-article.home h4 a:hover {
-	color: #e74c3c;
-}
 
 .author .author-image {
   float: left;

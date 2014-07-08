@@ -6,8 +6,7 @@ tagline:
 {% for post in paginator.posts %}
 
 <article class="home">
-
-  <span class="post-date">
+  <small>
     {% assign d = post.date | date: "%d" | plus:'0' %}
     {{ post.date | date: "%B" }}
     {% case d %}
@@ -17,13 +16,13 @@ tagline:
     {% else %}{{ d }}th,
     {% endcase %}
     {{ post.date | date: "%Y" }}
-  </span>
+  </small>
 
   <h2>
     <a href="{{ site.BASE_PATH }}{{ post.url }}">{{ post.title }}</a>
   </h2>
 
-  <div>
+  <p>
     {% if post.fullview %}
     {{ post.content }}
     {% else %}
@@ -35,7 +34,56 @@ tagline:
     {{ post.excerpt }}
     {% endif %}
     {% endif %}
-  </div>
+  </p>
+
+  {% unless post.categories == empty %}
+    <ul class="tag_box list-unstyled list-inline">
+      <li><i class="fa fa-folder-open"></i></li>
+      {% assign categories_list = post.categories %}
+      {% if categories_list.first[0] == null %}
+      {% for category in categories_list %} 
+        <li><a href="{{ site.BASE_PATH }}/{{ site.categories_path }}#{{ category }}-ref">
+          {{ category | join: "/" }} <span>({{ site.categories[category].size }})</span>
+          {% unless forloop.last %},{% endunless %}
+        </a></li>
+      {% endfor %}
+      {% else %}
+      {% for category in categories_list %} 
+        <li><a href="{{ site.BASE_PATH }}/{{ site.categories_path }}#{{ category[0] }}-ref">
+          {{ category[0] | join: "/" }} <span>/{{ category[1].size }})</span>
+        </a></li>
+      {% endfor %}
+      {% endif %}
+    </ul>
+    {% endunless %}  
+
+    {% unless post.tags == empty %}
+    <ul class="list-inline">
+      <li><i class="fa fa-tags"></i></li>
+      {% assign tags_list = post.tags %}
+      {% if tags_list.first[0] == null %}
+      {% for tag in tags_list %} 
+        <li>
+          <a href="{{ site.BASE_PATH }}/{{ site.tags_path }}#{{ tag }}-ref">
+          {{ tag }} <span>({{ site.tags[tag].size }})</span>
+          {% unless forloop.last %},{% endunless %}
+          </a>
+        </li>
+      {% endfor %}
+      {% else %}
+      {% for tag in tags_list %} 
+        <li>
+          <a href="{{ site.BASE_PATH }}/{{ site.tags_path }}#{{ tag[0] }}-ref">
+            {{ tag[0] }} <span>({{ tag[1].size }})</span>
+            {% unless forloop.last %},{% endunless %}
+          </a>
+        </li>
+        
+      {% endfor %}
+      {% endif %}
+      {% assign tags_list = nil %}
+    </ul>
+    {% endunless %}  
 
 </article>
 {% endfor %}
