@@ -14,6 +14,7 @@ tags: [github-page, jekyll, liquid]
 更新
 
 > jekyll最新的动态和文档现在可以在[jekyllrb](http://jekyllrb.com/)上找到
+> jekyll还能支持`markdown`语法，可以有选择性的配置markdown解释器
 
 ## jekyll介绍 ##
 
@@ -212,3 +213,17 @@ liquid内置了一些filter，并且该机制可以被扩展，jekyll便扩展�
 更多关于liquid的使用方法，请参见[这里](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers)
 
 更多关于jekyll对liquid的扩展，请参见[这里](https://github.com/mojombo/jekyll/wiki/Liquid-Extensions)
+
+相关文章
+
+> [一步步在GitHub上创建博客主页(1)]({% post_url 2013-01-03-build-github-blog-page-01 %})
+>
+> [一步步在GitHub上创建博客主页(2)]({% post_url 2013-01-05-build-github-blog-page-02 %})
+>
+> [一步步在GitHub上创建博客主页(3)]({% post_url 2013-01-05-build-github-blog-page-03 %})
+>
+> [一步步在GitHub上创建博客主页(4)]({% post_url 2013-01-05-build-github-blog-page-04 %})
+>
+> 一步步在GitHub上创建博客主页(5)
+> 
+> [一步步在GitHub上创建博客主页(6)]({% post_url 2013-01-09-build-github-blog-page-06 %})

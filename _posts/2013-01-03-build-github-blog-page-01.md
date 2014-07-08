@@ -55,8 +55,14 @@ jekyll本身基于`Ruby`，它实际上也可以看成是一种模板引擎liqui
 
 相关文章
 
+> 一步步在GitHub上创建博客主页(1)
+>
 > [一步步在GitHub上创建博客主页(2)]({% post_url 2013-01-05-build-github-blog-page-02 %})
 >
 > [一步步在GitHub上创建博客主页(3)]({% post_url 2013-01-05-build-github-blog-page-03 %})
 >
 > [一步步在GitHub上创建博客主页(4)]({% post_url 2013-01-05-build-github-blog-page-04 %})
+>
+> [一步步在GitHub上创建博客主页(5)]({% post_url 2013-01-07-build-github-blog-page-05 %})
+> 
+> [一步步在GitHub上创建博客主页(6)]({% post_url 2013-01-09-build-github-blog-page-06 %})
