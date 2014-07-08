@@ -9,57 +9,56 @@ tags: [github-page, jekyll]
 
 标准markdown的语法：<http://daringfireball.net/projects/markdown/syntax>
 
-[PHP Markdown Extra](#php_Markdown_Extra)
-[Maruku](#marku)
-
-## PHP Markdown Extra ## {#php_Markdown_Extra}
+## PHP Markdown Extra ##
 
 Markdown的php解析与实现，并且增加了许多有用的扩展。[PHP Markdown Extra](https://michelf.ca/projects/php-markdown/extra/)其中几个比较重要的改进有：
 
 - 支持在html块元素中插入markdown语法
 - 支持为一些元素添加id或class，比如为header添加id属性，用带锚点的链接导航。例如：
 
-```
+{% highlight html %}
 [Link back to header 1](#header1)
 
 Header 1            {#header1}
 ========
 
 ## Header 2 ##      {#header2}
-```
+{% endhighlight %}
+
+
 支持元素包括`header`、`code block`、`link`、`image`
 
 - 支持将代码块用\`或者~包起来，这样可以避免一些二义，还可以为代码块添加id或class
 
-```
+{% highlight html %}
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ {.html #example-1}
 <p>paragraph <b>emphasis</b>
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-```
+{% endhighlight %}
 
 - 支持手写的表格：
 
-```
+{% highlight html %}
 | Function name | Description                    |
 | ------------- | ------------------------------ |
 | `help()`      | Display the help window.       |
 | `destroy()`   | **Destroy your computer!**     |
-```
+{% endhighlight %}
 
 - 支持`dl`和`dt`在markdown中的对应语法
 - 支持脚注引用
 
-```
+{% highlight html %}
 That's some text with a footnote.[^1]
 
 [^1]: And that's the footnote.
-```
+{% endhighlight %}
 
 - 支持专有名词`abbr`
 - 避免下划线出现在单词中间，导致斜体输出
 
 
-## Maruku ## {#marku}
+## Maruku ##
 
 在"始作俑者PHP Markdown Extra"后，很多基于Ruby的Markdown解释器开始浮现。其中，[Maruku](https://github.com/bhollis/maruku)号称：
 
@@ -112,12 +111,13 @@ Github Page对于上述的基于Ruby的markdown是支持的，从[这里](https:
 
 - 支持把列表变成带勾选框的任务列表
 
-```
+{% highlight html %}
 - [x] @mentions, #refs, [links](), **formatting**, and <del>tags</del> are supported 
 - [x] list syntax is required (any unordered or ordered list supported) 
 - [x] this is a complete item 
 - [ ] this is an incomplete item
-```
+{% endhighlight %}
+
 
 - 站内对分支、问题、用户等对象的直接引用
 - [表情](http://www.emoji-cheat-sheet.com/)

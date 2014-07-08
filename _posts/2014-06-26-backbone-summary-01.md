@@ -12,14 +12,19 @@ tags: [javascript,backbone]
 
 `Backbone.Events`就是事件实现的核心，它可以让对象拥有事件能力
 
-	var Events = Backbone.Events = { .. }
+{% highlight js %}
+var Events = Backbone.Events = { .. }
+{% endhighlight %}
+
 
 对象通过`listenTo`侦听其他对象，通过`trigger`触发事件。可以脱离Backbone的MVC，在自定义的对象上使用事件
 
-	var model = _.extend({},Backbone.Events);
-	var view = _.extend({},Backbone.Events);
-	view.listenTo(model,'custom_event',function(){ alert('catch the event') });
-	model.trigger('custom_event');
+{% highlight js %}
+var model = _.extend({},Backbone.Events);
+var view = _.extend({},Backbone.Events);
+view.listenTo(model,'custom_event',function(){ alert('catch the event') });
+model.trigger('custom_event');
+{% endhighlight %}
 
 执行结果：
 
@@ -27,13 +32,15 @@ tags: [javascript,backbone]
 
 Backbone的Model和View等核心类，都是继承自`Backbone.Events`的。例如Backbone.Model：
 
-	var Events = Backbone.Events = { .. }
+{% highlight js %}
+var Events = Backbone.Events = { .. }
 
-	var Model = Backbone.Model = function(attributes, options) {
-		...
-  	};
+var Model = Backbone.Model = function(attributes, options) {
+	...
+	};
 
-	_.extend(Model.prototype, Events, { ... })
+_.extend(Model.prototype, Events, { ... })
+{% endhighlight %}
 
 从原理上讲，事件是这么工作的：
 
@@ -79,14 +86,16 @@ backbone通过Model的`urlRoot`属性或者是`Collection`的`url`属性得知�
 
 Backbone会根据与服务端要进行什么类型的操作，决定是否要添加`id`在`url`后面，以下代码是Model的默认`url`实现：
 
-    url: function () {
-        var base =
-          _.result(this, 'urlRoot') ||
-          _.result(this.collection, 'url') ||
-          urlError();
-        if (this.isNew()) return base;
-        return base.replace(/([^\/])$/, '$1/') + encodeURIComponent(this.id);
-    },
+{% highlight js %}
+url: function () {
+    var base =
+      _.result(this, 'urlRoot') ||
+      _.result(this.collection, 'url') ||
+      urlError();
+    if (this.isNew()) return base;
+    return base.replace(/([^\/])$/, '$1/') + encodeURIComponent(this.id);
+}
+{% endhighlight %}
 
 其中的正则式`/([^\/])$/`是个很巧妙的处理，它解决了`url`最后是否包含`'/'`的不确定性。
 
@@ -104,26 +113,30 @@ Backbone会根据与服务端要进行什么类型的操作，决定是否要添
 
 `Collection`沿用了`underscore`90%的集合和数组操作，使得集合操作极其方便：
 
-	// Underscore methods that we want to implement on the Collection.
-	// 90% of the core usefulness of Backbone Collections is actually implemented
-	// right here:
-	var methods = ['forEach', 'each', 'map', 'collect', 'reduce', 'foldl',
-	'inject', 'reduceRight', 'foldr', 'find', 'detect', 'filter', 'select',
-    'reject', 'every', 'all', 'some', 'any', 'include', 'contains', 'invoke',
-    'max', 'min', 'toArray', 'size', 'first', 'head', 'take', 'initial', 'rest',
-    'tail', 'drop', 'last', 'without', 'difference', 'indexOf', 'shuffle',
-    'lastIndexOf', 'isEmpty', 'chain', 'sample'];
+{% highlight js %}
+// Underscore methods that we want to implement on the Collection.
+// 90% of the core usefulness of Backbone Collections is actually implemented
+// right here:
+var methods = ['forEach', 'each', 'map', 'collect', 'reduce', 'foldl',
+'inject', 'reduceRight', 'foldr', 'find', 'detect', 'filter', 'select',
+'reject', 'every', 'all', 'some', 'any', 'include', 'contains', 'invoke',
+'max', 'min', 'toArray', 'size', 'first', 'head', 'take', 'initial', 'rest',
+'tail', 'drop', 'last', 'without', 'difference', 'indexOf', 'shuffle',
+'lastIndexOf', 'isEmpty', 'chain', 'sample'];
+{% endhighlight %}
 
 Backbone巧妙的使用下面的代码将这些方法附加到`Collection`中：
-	
-	// Mix in each Underscore method as a proxy to `Collection#models`.
-	_.each(methods, function (method) {
-		Collection.prototype[method] = function () {
-			var args = slice.call(arguments); 	//将参数数组转化成真正的数组
-			args.unshift(this.models);			//将Collection真正用来维护集合的数组，作为第一个个参数
-			return _[method].apply(_, args);	//使用apply调用underscore的方法
-		};
-	});
+
+{% highlight js %}
+// Mix in each Underscore method as a proxy to `Collection#models`.
+_.each(methods, function (method) {
+	Collection.prototype[method] = function () {
+		var args = slice.call(arguments); 	//将参数数组转化成真正的数组
+		args.unshift(this.models);			//将Collection真正用来维护集合的数组，作为第一个个参数
+		return _[method].apply(_, args);	//使用apply调用underscore的方法
+	};
+});
+{% endhighlight %}
 
 
 ###自动侦听和转发集合中的Model事件###
@@ -145,25 +158,26 @@ Backbone巧妙的使用下面的代码将这些方法附加到`Collection`中：
 
 有时从REST接口得到的数据并不能完全满足界面的处理需求，可以通过`Model.parse`或者`Collection.parse`方法，在实例化Backbone对象前，对数据进行预处理。大体上，`Model.parse`用来对返回的单个对象进行属性的处理，而`Collection.parse`用来对返回的集合进行处理，通常是过滤掉不必要的数据。例如：
 
-	//只挑选type=1的book
-	var Books = Backbone.Collection.extend({
-		parse:function(models,options){
-			return _.filter(models , function(model){
-				return model.type == 1;
-			})
-		}
-	})
+{% highlight js %}
+//只挑选type=1的book
+var Books = Backbone.Collection.extend({
+	parse:function(models,options){
+		return _.filter(models , function(model){
+			return model.type == 1;
+		})
+	}
+})
 
 
-	//为Book对象添加url属性，以便渲染
-	var Book = Backbone.Model.extend({
-		parse: function(model,options){
-			return _.extend(model,{ url : '/books/' + model.id });
-		}
-	})
+//为Book对象添加url属性，以便渲染
+var Book = Backbone.Model.extend({
+	parse: function(model,options){
+		return _.extend(model,{ url : '/books/' + model.id });
+	}
+})
+{% endhighlight %}
 
 通过Collection的`fetch`，自动实例化的Model，其parse也会被调用。
-
 
 
 ## 模型的默认值 ##
@@ -190,87 +204,92 @@ Backbone的视图对象十分简答，对于开发者而言，仅仅关心一个
 
 视图类还有几个属性可以导出，由外部初始化，它们是：
 
-	// List of view options to be merged as properties.
-	var viewOptions = ['model', 'collection', 'el', 'id', 'attributes', 'className', 'tagName', 'events'];
+{% highlight js %}
+// List of view options to be merged as properties.
+var viewOptions = ['model', 'collection', 'el', 'id', 'attributes', 'className', 'tagName', 'events'];
+{% endhighlight %}
 
 ## 内存泄漏 ##
 
 事件机制可以很好的带来代码维护的便利，但是由于事件绑定会使对象之间的引用变得复杂和错乱，容易造成内存泄漏。下面的写法就会造成内存泄漏：
 
-	var Task = Backbone.Model.extend({})
+{% highlight js %}
+var Task = Backbone.Model.extend({})
 
-	var TaskView = Backbone.View.extend({
-		tagName: 'tr',
-		template: _.template('<td><%= id %></td><td><%= summary %></td><td><%= description %></td>'),
-		initialize: function(){
-			this.listenTo(this.model,'change',this.render);
-		},
-		render: function(){
-			this.$el.html( this.template( this.model.toJSON() ) );
-			return this;
-		}
-	})
+var TaskView = Backbone.View.extend({
+	tagName: 'tr',
+	template: _.template('<td><%= id %></td><td><%= summary %></td><td><%= description %></td>'),
+	initialize: function(){
+		this.listenTo(this.model,'change',this.render);
+	},
+	render: function(){
+		this.$el.html( this.template( this.model.toJSON() ) );
+		return this;
+	}
+})
 
-	var TaskCollection = Backbone.Collection.extend({
-		url: 'http://api.test.clippererm.com/api/testtasks',
-		model: Task,
-		comparator: 'summary'
-	})
+var TaskCollection = Backbone.Collection.extend({
+	url: 'http://api.test.clippererm.com/api/testtasks',
+	model: Task,
+	comparator: 'summary'
+})
 
-	var TaskCollectionView = Backbone.View.extend({
-		initialize: function(){
-			this.listenTo(this.collection, 'add',this.addOne);
-			this.listenTo(this.collection, 'reset',this.render);
-		},
-		addOne: function(task){
-			var view = new TaskView({ model : task });
-			this.$el.append(view.render().$el);
-		},
-		render: function(){
-			var _this = this;
+var TaskCollectionView = Backbone.View.extend({
+	initialize: function(){
+		this.listenTo(this.collection, 'add',this.addOne);
+		this.listenTo(this.collection, 'reset',this.render);
+	},
+	addOne: function(task){
+		var view = new TaskView({ model : task });
+		this.$el.append(view.render().$el);
+	},
+	render: function(){
+		var _this = this;
 
-			//简单粗暴的将DOM清空
-			//在sort事件触发的render调用时，之前实例化的TaskView对象会泄漏
-			this.$el.empty();
+		//简单粗暴的将DOM清空
+		//在sort事件触发的render调用时，之前实例化的TaskView对象会泄漏
+		this.$el.empty();
 
-			this.collection.each(function(model){
-				_this.addOne(model);
-			})
+		this.collection.each(function(model){
+			_this.addOne(model);
+		})
 
-			return this;
-		}
+		return this;
+	}
 
-	})
+})
+{% endhighlight %}
 
 使用下面的测试代码，并结合Chrome的堆内存快照来证明：
 
-	var tasks = null;
-	var tasklist = null;
+{% highlight js %}
+var tasks = null;
+var tasklist = null;
 
-	$(function () {
-		// body...
-		$('#start').click(function(){
-			tasks = new TaskCollection();
-			tasklist = new TaskCollectionView({
-				collection : tasks,
-				el: '#tasklist'
-			})
-
-			tasklist.render();
-			tasks.fetch();
+$(function () {
+	// body...
+	$('#start').click(function(){
+		tasks = new TaskCollection();
+		tasklist = new TaskCollectionView({
+			collection : tasks,
+			el: '#tasklist'
 		})
 
-		$('#refresh').click(function(){
-			tasks.fetch({ reset : true });
-		})
-
-		$('#sort').click(function(){
-			//将侦听sort放在这里，避免第一次加载数据后的自动排序，触发的sort事件，以至于混淆
-			tasklist.listenToOnce(tasks,'sort',tasklist.render);
-			tasks.sort();
-		})
+		tasklist.render();
+		tasks.fetch();
 	})
 
+	$('#refresh').click(function(){
+		tasks.fetch({ reset : true });
+	})
+
+	$('#sort').click(function(){
+		//将侦听sort放在这里，避免第一次加载数据后的自动排序，触发的sort事件，以至于混淆
+		tasklist.listenToOnce(tasks,'sort',tasklist.render);
+		tasks.sort();
+	})
+})
+{% endhighlight %}
 
 点击开始，使用Chrome的'Profile'下的'Take Heap Snapshot'功能，查看当前堆内存情况，使用`child`类型过滤，可以看到Backbone对象实例一共有10个(1+1+4+4)：
 
@@ -290,40 +309,42 @@ Backbone的视图对象十分简答，对于开发者而言，仅仅关心一个
 
 修改TaskCollectionView：
 
-	var TaskCollectionView = Backbone.View.extend({
-		initialize: function(){
-			this.listenTo(this.collection, 'add',this.addOne);
-			this.listenTo(this.collection, 'reset',this.render);
-			//初始化一个view数组以跟踪创建的view
-			this.views =[]
-		},
-		addOne: function(task){
-			var view = new TaskView({ model : task });
-			this.$el.append(view.render().$el);
-			//将新创建的view保存起来
-			this.views.push(view);
-		},
-		render: function(){
-			var _this = this;
+{% highlight js %}
+var TaskCollectionView = Backbone.View.extend({
+	initialize: function(){
+		this.listenTo(this.collection, 'add',this.addOne);
+		this.listenTo(this.collection, 'reset',this.render);
+		//初始化一个view数组以跟踪创建的view
+		this.views =[]
+	},
+	addOne: function(task){
+		var view = new TaskView({ model : task });
+		this.$el.append(view.render().$el);
+		//将新创建的view保存起来
+		this.views.push(view);
+	},
+	render: function(){
+		var _this = this;
 
-			//遍历views数组，并对每个view调用Backbone的remove
-			_.each(this.views,function(view){
-				view.remove().off();
-			})
+		//遍历views数组，并对每个view调用Backbone的remove
+		_.each(this.views,function(view){
+			view.remove().off();
+		})
 
-			//清空views数组，此时旧的view就变成没有任何被引用的不可达对象了
-			//垃圾回收器会回收它们
-			this.views =[];
-			this.$el.empty();
+		//清空views数组，此时旧的view就变成没有任何被引用的不可达对象了
+		//垃圾回收器会回收它们
+		this.views =[];
+		this.$el.empty();
 
-			this.collection.each(function(model){
-				_this.addOne(model);
-			})
+		this.collection.each(function(model){
+			_this.addOne(model);
+		})
 
-			return this;
-		}
+		return this;
+	}
 
-	})
+})
+{% endhighlight %}
 
 Backbone的View有一个`remove`方法，这个方法除了删除View所关联的DOM对象，还会阻断事件侦听，它通过在listenTo方法时记录下来的那些被侦听对象(上文事件原理中提到)，来使这些被侦听的对象删除对自己的引用。在`remove`内部使用事件基类的`stopListening`完成这个动作。
 上面的代码使用一个views数组来跟踪新创建的`TaskView`对象，并在render的时候，依次调用这些视图对象的`remove`，然后清空数组，这样这些`TaskView`对象就能得到释放。并且，除了调用`remove`，还调用了`off`，把视图对象可能的被外部的侦听也断开。
