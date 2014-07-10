@@ -66,7 +66,7 @@ Mid-tier会在恰当的时候调用该接口的实现，以获取用户的登录
 
 因此，当AR是以Form验证方式设置的时候，这种方案就不可取了。但是仍然可以通过重写AR端的AREA认证模块来实现，但是在Mid-tier端的原理是一样的。下图归纳了上述过程，并给出了一种实现：
 
-![]({{ site.BASE_PATH }}/assert/img/2013-05-14-img2.png)
+![]({{ site.BASE_PATH }}/assets/img/2013-05-14-img2.png)
 
 上图为我们描述了下面的场景
 
@@ -170,7 +170,7 @@ public class SSOAuthenticator implements Authenticator
 
 这种情况相对来说处理简单些，因为非Mid-tier站点一般是自定义开发的，所以有比较大的灵活度。我所采用的方法是这样的：
 
-![]({{ site.BASE_PATH }}/assert/img/2013-05-14-img1.png)
+![]({{ site.BASE_PATH }}/assets/img/2013-05-14-img1.png)
 
 - 在Mid-tier端放置一个`jsp`文件，首先通过链接引导用户访问这个jsp，这个文件通过`UserCredentials`对象获取当前登录人的`User`
 {% highlight jsp %}
@@ -195,4 +195,4 @@ if (obj == null) {
 
 为了安全起见，可以对这个机制稍作强化：在2步中可以将用户名加密返回，加密机制可以适当的强化；在第4步中，可以重复验证一下，用户是否是合法用户。
 
-[代码下载]({{ site.BASE_PATH }}/assert/download/sso.zip)
+[代码下载]({{ site.BASE_PATH }}/assets/download/sso.zip)

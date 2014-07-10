@@ -2,9 +2,8 @@
 layout: postlayout
 title: Markdown的各种扩展
 description: 刚开始接触markdown的时候，觉得好简单好方便，随着使用的深入，发现markdown好像在很多地方有很多不同的实现，语法特性各不相同，顿时陷入迷茫。
-thumbimg: 1346208288725.jpg
-categories: [web-build]
-tags: [github-page, jekyll]
+categories: [open-source]
+tags: [markdown,github-page]
 ---
 
 标准markdown的语法：<http://daringfireball.net/projects/markdown/syntax>

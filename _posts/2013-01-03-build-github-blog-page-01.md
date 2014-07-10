@@ -7,6 +7,10 @@ categories: [web-build]
 tags: [github-page, jekyll, liquid]
 ---
 
+更新
+
+> github已经有了很大的改进，这个系列是在13年初写的，东西有些老了，建议读者可以同时参看[一步步在GitHub上创建博客主页-最新版]({% post_url 2014-07-04-build-github-blog-page-08 %})
+
 本系列文章将一步步教你如何在GitHub上创建自己的博客或主页，事实上相关的文章网上有很多，这里只是把自己的经验分享给新手，方便他们逐步开始GitHub之旅。本篇介绍GitHub提供的个人博客及其关键技术，以便读者决策。GitHub十分“给力”，不仅为程序员提供了免费源代码托管空间，还为程序员提供了一个社交平台，允许大家在GitHub上创建自己的博客网站或主页（[github pages](http://pages.github.com/)），而且免费，不限流量，还可以绑定自己的域名。不过遗憾的是，GitHub提供的主页实际上是基于GitHub的源代码实现的，所以只支持上传静态的网页，不能在上面创建真正的博客系统。不过，不幸中的万幸是，GitHub支持一种叫jekyll的静态页面转换引擎，也就是说只要上传符合jekyll规范的文件，GitHub会用这种模板引擎为你转化静态页面和网站。
 
 ## 关于jekyll ##
@@ -36,7 +40,7 @@ jekyll本身基于`Ruby`，它实际上也可以看成是一种模板引擎liqui
 
 因此，对GitHub网站的维护工作，大致可以用下面的图表示：
 
-![]({{ site.BASE_PATH }}/assert/img/build-github-blog-page-01-img0.png)
+![]({{ site.BASE_PATH }}/assets/img/build-github-blog-page-01-img0.png)
 
 1. 利用本地编辑器编写博客后维护网站其他页面
 2. 使用`Jekyll-Bootstrap`在本地测试网站功能
@@ -66,3 +70,7 @@ jekyll本身基于`Ruby`，它实际上也可以看成是一种模板引擎liqui
 > [一步步在GitHub上创建博客主页(5)]({% post_url 2013-01-07-build-github-blog-page-05 %})
 > 
 > [一步步在GitHub上创建博客主页(6)]({% post_url 2013-01-09-build-github-blog-page-06 %})
+> 
+> [一步步在GitHub上创建博客主页(7)]({% post_url 2013-01-20-build-github-blog-page-07 %})
+> 
+> [一步步在GitHub上创建博客主页-最新版]({% post_url 2014-07-04-build-github-blog-page-08 %})

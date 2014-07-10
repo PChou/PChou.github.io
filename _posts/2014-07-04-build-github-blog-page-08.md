@@ -1,13 +1,10 @@
 ---
 layout: postlayout
 title: 一步步在GitHub上创建博客主页-最新版
-description: 随着Github的不断改进，笔者发现Github在个人主页上已经有了较大的变化，原先的系列文章在某些方面已经有些不合时宜了。有必要重新整理一下思路
 thumbimg: 1346208288725.jpg
 categories: [web-build]
 tags: [github-page, jekyll]
 ---
-
-## 缘起 ##
 
 记得在2013年初，刚刚接触到github-page，当时关于如何搭建github博客的文章还很少，而且整个过程对于新手来讲还是比较复杂的，所以笔者写了一整个系列来记录如何搭建github博客。在一年多的时间里，笔者的系列文章也被不少的网友转载，从ga的统计看，来到这个博客的网友大多都是来看这个系列文章的，也有不少的网友通过其他的方式联系到我，一起探讨构建博客的问题。一年多的时间里，笔者的主要精力是写好博客的文章，并没有花时间研究github在个人主页上面进行了何种改进，仍然沿用以前的那套方式和方法。不过在跟网友的沟通中也隐隐感觉到github已经有了很大的改进，但是苦于没有很多的精力来研究。前一段时间，github的一封邮件触发了我重新学习和改进，以及这篇文章，原文如下：
 
@@ -32,7 +29,7 @@ tags: [github-page, jekyll]
 
 1. 免空间费，免流量费
 2. 具有项目主页和个人主页两种选择
-3. 支持页面生成，可以使用jekyll来布局页面，使用markdown来书写正文
+3. 支持页面生成，可以使用jekyll来布局页面，使用`markdown`来书写正文
 4. 可以自定义域名
 
 
@@ -51,6 +48,68 @@ tags: [github-page, jekyll]
 每个帐号只能有一个仓库来存放个人主页，而且仓库的名字必须是`username/username.github.io`，这是特殊的命名约定。你可以通过`http://username.github.io`来访问你的个人主页。
 
 通过向导很容易创建一个仓库，并测试成功。不过，同样的，没有博客的结构。需要注意的个人主页的网站内容是在`master`分支下的。
+
+
+## 本地环境搭建 ##
+
+这一步不是必须的，但是强烈建议完成。因为在博客发布之前，通常都是需要在本地先检验一下的。笔者曾经在[一步步在GitHub上创建博客主页(4)]({% post_url 2013-01-05-build-github-blog-page-04 %})中详细描述了如何构建一个本地环境。不过现在情况变的更简单了，github有一个对应的gem，可以"一键"配置环境，具体可以参考[Using Jekyll with Pages](https://help.github.com/articles/using-jekyll-with-pages)。这里稍微提一下：
+
+### Ruby安装 ###
+
+参考[一步步在GitHub上创建博客主页(4)]({% post_url 2013-01-05-build-github-blog-page-04 %})
+
+### 安装Bundle
+
+直接使用下面命令即可：
+
+{% highlight bash %}
+$ gem install bundler
+{% endhighlight %}
+
+### Gemfile和Bundle安装
+
+在更目录下创建一个叫`Gemfile`的文件，注意没有后缀，输入
+
+{% highlight raw %}
+source 'http://ruby.taobao.org/'
+gem 'github-pages'
+{% endhighlight %}
+
+保存后，在命令行中执行
+
+{% highlight bash %}
+$ bundle install
+{% endhighlight %}
+
+命令会根据当前目录下的`Gemfile`，安装所需要的所有软件。这一步所安装的东西，可以说跟`github`本身的环境是完全一致的，所以可以确保本地如果没有错误，上传后也不会有错误。而且可以在将来使用下面命令，随时更新环境，十分方便
+
+{% highlight bash %}
+$ bundle update
+{% endhighlight %}
+
+使用下面命令，启动转化和本地服务：
+
+{% highlight bash %}
+$ bundle exec jekyll serve
+{% endhighlight %}
+
+
+
+## 使用现成的模板 ##
+
+博客基于`jekyll`，而新手往往摸不着头脑，幸好有一些[现成的模板](jekyllthemes.org)可以直接使用：
+
+![](http://pchou.qiniudn.com/2014-07-04-build-github-blog-page-08-img-00.jpg)
+
+以[White Paper](http://jekyllthemes.org/themes/white-paper/)这个模板为例，可以直接下载压缩包，也可以使用如下命令clone到本地：
+
+{% highlight bash %}
+$ git clone https://github.com/vinitkumar/white-paper.git
+{% endhighlight %}
+
+把克隆下来的文件拷贝到你自己的目录就行了，这样你就有一个现成的网站结构了：
+
+![](http://pchou.qiniudn.com/2014-07-04-build-github-blog-page-08-img-01.jpg)
 
 
 ## 自定义域名的新玩法 ##
@@ -123,9 +182,56 @@ ping动态的IP
 	64 bytes from 103.245.222.133: icmp_seq=6 ttl=53 time=82.5 ms
 
 
-## 博客结构构建 ##
+## jekyll的一些新玩法
 
-如果你没有安装过`jekyll`，可以按照[Using Jekyll with Pages](https://help.github.com/articles/using-jekyll-with-pages)来配置环境，而且配置完成后，博客的结构会自动构建好，能直接运行
+### 首页分页列表分页
 
-如果你已经安装了`jekyll`，但是对于如何构建博客结构还不了解，可以参照[Quick-start guide](http://jekyllrb.com/docs/quickstart/)来做一个示例，示例包含了基本的博客结构，无需手动搭建了
+分页只可用在html页面中，不能用在markdown
 
+只需在`_comfig.yml`中配置如下两个参数即可
+
+{% highlight yaml %}
+paginate: 5 # 指定每页多少条
+paginate_path: "page:num" # 指定每页的url
+{% endhighlight %}
+
+在目录页面通过`paginator`对象访问分页的一些参数。详见[Pagination](http://jekyllrb.com/docs/pagination/)
+
+
+### 语法高亮
+
+以往使用一些语法高亮的js解决方案，如今jekyll可以和[pygments](http://pygments.org/languages)，结合在生成html的时候就对代码块进行分析。只需在文章中使用如下语法即可：
+
+	{% raw %}
+	{% highlight bash %}
+	$ gem install bundler
+	{% endhighlight %}
+	{% endraw %}
+
+
+### 多种Markdown解释器的选择
+
+[Markdown解释器很多]({% post_url 2014-07-07-something-about-markdown %})，各自有各自的扩展和特点，你可以自由选择了，只需要在`_config.yml`中指定就行了：
+
+{% highlight yaml %}
+markdown:      kramdown #默认使用kramdown
+{% endhighlight %}
+
+
+相关文章
+
+> [一步步在GitHub上创建博客主页(1)]({% post_url 2013-01-03-build-github-blog-page-01 %})
+>
+> [一步步在GitHub上创建博客主页(2)]({% post_url 2013-01-05-build-github-blog-page-02 %})
+>
+> [一步步在GitHub上创建博客主页(3)]({% post_url 2013-01-05-build-github-blog-page-03 %})
+>
+> [一步步在GitHub上创建博客主页(4)]({% post_url 2013-01-05-build-github-blog-page-04 %})
+>
+> [一步步在GitHub上创建博客主页(5)]({% post_url 2013-01-07-build-github-blog-page-05 %})
+> 
+> [一步步在GitHub上创建博客主页(6)]({% post_url 2013-01-09-build-github-blog-page-06 %})
+> 
+> [一步步在GitHub上创建博客主页(7)]({% post_url 2013-01-20-build-github-blog-page-07 %})
+>
+> 一步步在GitHub上创建博客主页-最新版

@@ -25,7 +25,7 @@ tags: [FTP, NAT]
 
 NAT网关，它对外有一个外网端口和IP、对内有一个内网端口和IP。内网的终端向外网发送的TCP或UDP包都会被NAT网关修改IP和端口，并且将记住端口的映射关系。反之，外网返回的数据包虽然目的IP和端口都是NAT网关的，但是由于前面网关记住了端口映射关系，因此它能再次修改回正确的内网IP和端口，并转发给相应的内网主机。整个过程对通信双发是透明的。
 
-![ftp-notwork-in-nat-img1]({{ site.BASE_PATH }}/assert/img/ftp-notwork-in-nat-img1.png)
+![ftp-notwork-in-nat-img1]({{ site.BASE_PATH }}/assets/img/ftp-notwork-in-nat-img1.png)
 
 但是，这个过程有个缺点，外网主机无法主动向内网主机建立TCP链接，因为，外网主机仅仅知道的是NAT网关的IP和端口，如果发起TCP链接，会出现两种可能：
 
@@ -44,4 +44,4 @@ NAT网关，它对外有一个外网端口和IP、对内有一个内网端口和
 
 另外，IE8以上的浏览器可以作为FTP客户端，并且支持PASV模式：
 
-![ftp-notwork-in-nat-img0]({{ site.BASE_PATH }}/assert/img/ftp-notwork-in-nat-img0.png)
+![ftp-notwork-in-nat-img0]({{ site.BASE_PATH }}/assets/img/ftp-notwork-in-nat-img0.png)

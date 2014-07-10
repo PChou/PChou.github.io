@@ -21,7 +21,7 @@ tags: [CPP, dot NET, Compiler]
 
 找到vs2008的VC目录，大致如下：
 
-![](http://www.pchou.info/assert/img/2013-01-13-cppcli-target-net2-without-vs2008-img0.png)
+![]({{ site.BASE_PATH }}/assets/img/2013-01-13-cppcli-target-net2-without-vs2008-img0.png)
 
 主要的目录如上图：
 
@@ -52,7 +52,7 @@ tags: [CPP, dot NET, Compiler]
 
 首先看下我的编译环境的目录结构
 
-![](http://www.pchou.info/assert/img/2013-01-13-cppcli-target-net2-without-vs2008-img1.png)
+![]({{ site.BASE_PATH }}/assets/img/2013-01-13-cppcli-target-net2-without-vs2008-img1.png)
 
 其中WinSDK6下分别是windows的`include`和`lib`，其他都是从上面的步骤中copy过来的，现在我们在制作`vsvars32.bat`:
 

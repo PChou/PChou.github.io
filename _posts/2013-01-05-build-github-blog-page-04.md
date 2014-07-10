@@ -32,7 +32,7 @@ jekyll本身基于Ruby开发，因此，想要在本地构建一个测试环境�
 windows的安装还是一如既往的“无脑”，不多说了。
 
 如果想要快速体验ruby开发，可以参考：[20分钟体验 Ruby](http://www.ruby-lang.org/zh_cn/documentation/quickstart/)
- 
+
 
 ## RubyDevKit安装 ##
 
@@ -112,7 +112,7 @@ jekyll依赖的组件会自动下载安装
 $jekyll serve --safe --watch
 {% endhighlight %}
 
-![](http://www.pchou.info/assert/img/build-github-blog-page-04-img0.png)
+![]({{ site.BASE_PATH }}/assets/img/build-github-blog-page-04-img0.png)
 
 jekyll此时会在localhost的4000端口监听http请求，用浏览器访问<http://localhost:4000/index.html>，之前的页面出现了！
 
@@ -129,3 +129,7 @@ jekyll此时会在localhost的4000端口监听http请求，用浏览器访问<ht
 > [一步步在GitHub上创建博客主页(5)]({% post_url 2013-01-07-build-github-blog-page-05 %})
 > 
 > [一步步在GitHub上创建博客主页(6)]({% post_url 2013-01-09-build-github-blog-page-06 %})
+> 
+> [一步步在GitHub上创建博客主页(7)]({% post_url 2013-01-20-build-github-blog-page-07 %})
+> 
+> [一步步在GitHub上创建博客主页-最新版]({% post_url 2014-07-04-build-github-blog-page-08 %})

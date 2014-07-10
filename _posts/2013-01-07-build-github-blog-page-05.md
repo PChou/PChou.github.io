@@ -94,7 +94,7 @@ layout变量表示该文章应当使用`_layouts/default`这个文件作为父�
 
 在根目录中启动`jekyll serve`，并访问<http://localhost:4000/index.html>，你将得到下面页面：
 
-![](http://www.pchou.info/assert/img/build-github-blog-page-05-img0.png)
+![]({{ site.BASE_PATH }}/assets/img/build-github-blog-page-05-img0.png)
 
 该页面的Html源码如下，可以看到，`index.html`中的内容替换了default.html中的{% raw %}`{{content }}`{% endraw %}
 
@@ -156,7 +156,7 @@ layout: default
 
 最终效果如下：
 
-![](http://www.pchou.info/assert/img/build-github-blog-page-05-img1.png)
+![]({{ site.BASE_PATH }}/assets/img/build-github-blog-page-05-img1.png)
 
 这个是略微复杂的例子，这里涉及到两个主要的对象
 
@@ -227,3 +227,7 @@ liquid内置了一些filter，并且该机制可以被扩展，jekyll便扩展�
 > 一步步在GitHub上创建博客主页(5)
 > 
 > [一步步在GitHub上创建博客主页(6)]({% post_url 2013-01-09-build-github-blog-page-06 %})
+> 
+> [一步步在GitHub上创建博客主页(7)]({% post_url 2013-01-20-build-github-blog-page-07 %})
+> 
+> [一步步在GitHub上创建博客主页-最新版]({% post_url 2014-07-04-build-github-blog-page-08 %})

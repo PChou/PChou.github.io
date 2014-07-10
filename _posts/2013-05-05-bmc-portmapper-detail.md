@@ -35,7 +35,7 @@ tags: [BMC, Remedy]
 
 当客户端向BMC AR服务发起连接的时候，下面是第一个数据包，方向是client –> Server：
 
-![]({{ site.BASE_PATH }}/assert/img/2013-05-05-img0.png)
+![]({{ site.BASE_PATH }}/assets/img/2013-05-05-img0.png)
 
 这个包是基于`UDP`的，目标端口是`111`，并且这个调用是一次RPC调用，程序号为`100000`，版本`2`，方法号是`3`，参数有`Program号`，`版本`，`协议`，`端口`。通过查阅[RFC 1833](http://tools.ietf.org/html/rfc1833)可以知道，这次调用是向目标主机的`100000`程序号（版本2）发起的`PMAPPROC_GETPORT`过程，含义是需要查询程序号为`390620`，版本为`18`，使用协议为TCP协议的RPC程序所使用的端口！
 
@@ -70,34 +70,34 @@ Port mapper procedures:
 
 下面是第二个数据包，方向是Server –> client：
 
-![]({{ site.BASE_PATH }}/assert/img/2013-05-05-img1.png)
+![]({{ site.BASE_PATH }}/assets/img/2013-05-05-img1.png)
 
 这个包同样是基于UDP，是服务端向客户端返回刚才调用的结果，结果为`1093`。说明程序号为`390620`，版本为`18`，使用协议为TCP协议的RPC程序所使用的端口为`1093`，这个RPC程序就是AR服务！
 
 客户端得知AR服务所使用的端口1093后，立刻与之建立TCP连接，以下是三次握手：
 
-![]({{ site.BASE_PATH }}/assert/img/2013-05-05-img2.png)
+![]({{ site.BASE_PATH }}/assets/img/2013-05-05-img2.png)
 
 
-![]({{ site.BASE_PATH }}/assert/img/2013-05-05-img3.png)
+![]({{ site.BASE_PATH }}/assets/img/2013-05-05-img3.png)
 
 
-![]({{ site.BASE_PATH }}/assert/img/2013-05-05-img4.png)
+![]({{ site.BASE_PATH }}/assets/img/2013-05-05-img4.png)
 
 
 建立好TCP连接后，接下来客户端开始在AR服务上进行RPC调用，先是过程号为97
 
-![]({{ site.BASE_PATH }}/assert/img/2013-05-05-img5.png)
+![]({{ site.BASE_PATH }}/assets/img/2013-05-05-img5.png)
 
-![]({{ site.BASE_PATH }}/assert/img/2013-05-05-img6.png)
+![]({{ site.BASE_PATH }}/assets/img/2013-05-05-img6.png)
 
-![]({{ site.BASE_PATH }}/assert/img/2013-05-05-img7.png)
+![]({{ site.BASE_PATH }}/assets/img/2013-05-05-img7.png)
 
-![]({{ site.BASE_PATH }}/assert/img/2013-05-05-img8.png)
+![]({{ site.BASE_PATH }}/assets/img/2013-05-05-img8.png)
 
-![]({{ site.BASE_PATH }}/assert/img/2013-05-05-img9.png)
+![]({{ site.BASE_PATH }}/assets/img/2013-05-05-img9.png)
 
-![]({{ site.BASE_PATH }}/assert/img/2013-05-05-img10.png)
+![]({{ site.BASE_PATH }}/assets/img/2013-05-05-img10.png)
 
 
 ## 结论

@@ -35,7 +35,7 @@ tags: [github-page, jekyll, liquid]
 
 登录后，访问<https://github.com/new>，创建仓库如下图：
 
-![](http://www.pchou.info/assert/img/build-github-blog-page-02-img0.png)
+![]({{ site.BASE_PATH }}/assets/img/build-github-blog-page-02-img0.png)
 
 
 创建了仓库后，我们就需要管理它，无论是管理本地仓库还是远程仓库都需要Git客户端。Git客户端实际上十分强大，它本身就可以offline的创建本地仓库，而本地仓库和远程仓库之间的同步也是通过Git客户端完成的。
@@ -66,7 +66,7 @@ $git checkout --orphan gh-pages
 
 在该目录下手动创建如下文件和文件夹，最终形成这样的结构：
 
-![](http://www.pchou.info/assert/img/build-github-blog-page-02-img1.png)
+![]({{ site.BASE_PATH }}/assets/img/build-github-blog-page-02-img1.png)
 
 - _includes：默认的在模板中可以引用的文件的位置，后面会提到
 - _layouts：默认的公共页面的位置，后面会提到
@@ -133,3 +133,7 @@ $ git push origin gh-pages
 > [一步步在GitHub上创建博客主页(5)]({% post_url 2013-01-07-build-github-blog-page-05 %})
 > 
 > [一步步在GitHub上创建博客主页(6)]({% post_url 2013-01-09-build-github-blog-page-06 %})
+> 
+> [一步步在GitHub上创建博客主页(7)]({% post_url 2013-01-20-build-github-blog-page-07 %})
+> 
+> [一步步在GitHub上创建博客主页-最新版]({% post_url 2014-07-04-build-github-blog-page-08 %})

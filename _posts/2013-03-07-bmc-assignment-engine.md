@@ -53,19 +53,19 @@ Application-Command AE-ASSIGN DoAssign -t "processName" -e "RequestID"
 
 除此之外还有还有一些可选字段可以出现在两种表单中，详见相关文档。下面给出一些配置界面的截图：
 
-![]({{ site.BASE_PATH }}/assert/img/2013-03-07-img0.png)
+![]({{ site.BASE_PATH }}/assets/img/2013-03-07-img0.png)
 
 配置Request Form
 
-![]({{ site.BASE_PATH }}/assert/img/2013-03-07-img1.png)
+![]({{ site.BASE_PATH }}/assets/img/2013-03-07-img1.png)
 
 配置Assignee Form
 
-![]({{ site.BASE_PATH }}/assert/img/2013-03-07-img2.png)
+![]({{ site.BASE_PATH }}/assets/img/2013-03-07-img2.png)
 
 配置Rule
 
-![]({{ site.BASE_PATH }}/assert/img/2013-03-07-img3.png)
+![]({{ site.BASE_PATH }}/assets/img/2013-03-07-img3.png)
 
 配置Process
 
@@ -75,7 +75,7 @@ Application-Command AE-ASSIGN DoAssign -t "processName" -e "RequestID"
 
 首先，`Application-Command AE-ASSIGN DoAssign`在ARServer进程中执行，`arserver`通知`apsvcae`进程。注意此时apsvcae进程可以在另外的AR集群（Server Group）服务器上
 
-![]({{ site.BASE_PATH }}/assert/img/2013-03-07-img4.png)
+![]({{ site.BASE_PATH }}/assets/img/2013-03-07-img4.png)
 
 然后，`apsvcae`进程将执行如下一系列动作：
 

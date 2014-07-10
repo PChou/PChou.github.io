@@ -13,7 +13,7 @@ tags: [BMC, Remedy]
 
 Remedy系统架构如下图
 
-![]({{ site.BASE_PATH }}/assert/img/2013-02-26-img0.png)
+![]({{ site.BASE_PATH }}/assets/img/2013-02-26-img0.png)
 
 - 表现层：表现层是指用户能够直接接触到的层，包括浏览器、客户端、Remedy User、第三方API程序和解决方案等
 - 业务流程层：这部分的主要组成部分包括，`Mid-tier`、`AR`系统服务和相关的服务
@@ -46,7 +46,7 @@ Remedy系统架构如下图
 
 队列是`RPC`调用请求存放的地方，线程从队列中获取请求并处理，每个队列负责不同的请求类型，并分配有一个PRC号。线程分为分派线程，工作线程，管理线程。分派线程用于分派PRC调用给不同的队列，工作线程用于从队列中取PRC调用并处理，管理线程用于监控和创建其他线程并保证其他线程在奔溃后重启。
 
-![]({{ site.BASE_PATH }}/assert/img/2013-02-26-img1.png)
+![]({{ site.BASE_PATH }}/assets/img/2013-02-26-img1.png)
 
 - `Admin Queue`（390600）：处理所有管理员的重构数据库结构的操作，比如开发过程中的操作。该队列只能有一个工作线程处理
 - `Alert Queue`（390601）：负责将AR内部的通知请求发向注册为“被通知”的客户端
@@ -67,8 +67,8 @@ Remedy系统架构如下图
 
 在Remedy User中配置特定端口的链接
 
-![]({{ site.BASE_PATH }}/assert/img/2013-02-26-img2.png)
+![]({{ site.BASE_PATH }}/assets/img/2013-02-26-img2.png)
 
 在服务端配置相关端口、队列和线程的参数
 
-![]({{ site.BASE_PATH }}/assert/img/2013-02-26-img3.png)
+![]({{ site.BASE_PATH }}/assets/img/2013-02-26-img3.png)

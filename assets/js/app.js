@@ -149,15 +149,11 @@ var BlogDirectory = {
     
 };
 
-window.onload=function(){
-    
-}
-
 
 $( document ).ready(function() {
 
 	/* Sidebar height set */
-	$('.sidebar').css('min-height',$(document).height());
+	//$('.sidebar').css('min-height',$(document).height());
 
 	/* qrcode */
 	var opt = { text : window.location.href, width:150, height:150 };

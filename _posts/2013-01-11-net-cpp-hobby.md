@@ -87,7 +87,7 @@ ARException^ exception = gcnew ARException();
 
 上面简单介绍的一些语言特性是我实际碰到的，可能不全。与语言特性相比，更为重要的是内存管理带来的复杂性。原生的C++只有一个由C运行库管理的“本地堆”，而C++/CLI允许同时操作本地堆和托管堆。众所周知，托管堆由CLR管理，在托管堆中的内存会随时被CLR回收和压缩，这意味着，如果使用C#的引用或者C++/CLI中的`Handle`（即由String^等“戴帽子的类型“声明的变量）来操作托管堆的内存，不会有任何问题，因为CLR会自动更改引用或Handle指向的地址。然而，如果在本地堆或者栈上的本地指针来指向托管堆上的内存的话，CLR不会对压缩内存带来的地址修改负任何责任。如果发生这种情况的话，再次使用该指针将导致内存违规。下面这张图可以解释这个现象（图片来源<http://www.codeproject.com/Articles/17817/C-CLI-in-Action-Using-interior-and-pinning-pointer>)：
 
-![net-cpp-hobby-img0]({{ site.BASE_PATH }}/assert/img/net-cpp-hobby-img0.png)
+![net-cpp-hobby-img0]({{ site.BASE_PATH }}/assets/img/net-cpp-hobby-img0.png)
 
 在上图中，本地指针指向的地址本来是`Data`，但是当CLR的GC工作后，`Data`可能被压缩至托管堆的其他地方，而取而代之的是另外一块内存。很典型的情况就是，我们要在托管的`byte[]`和非托管的`usigned char*`对象之间传递内存，下面这段代码将`String`对象转化成以`UTF8`编码的字节数组：
 

@@ -124,7 +124,7 @@ protocol="HTTP/1.1" redirectPort="8443"/>
 
 以下是推荐配置：
 
-![]({{ site.BASE_PATH }}/assert/img/bmc-performance-tuning-img0.png)
+![]({{ site.BASE_PATH }}/assets/img/bmc-performance-tuning-img0.png)
 
 上图的配置仅仅考虑了你的Tomcat只运行midt-tier应用程序。如果还有其他应用共享一个Tomcat，你可能需要增加JVM堆的最大值和最小值
 
@@ -189,7 +189,7 @@ mid-tier的职责是将AR系统应用转化成web应用，本质上它会将AR�
 
 如果线程数的设置太低的话，AR系统不能充分使用CPU资源，在高负荷下会有潜在性能问题。太多的线程会导致额外的线程管理开销。建议线程数量3倍于CPU数量（Fast类型），5倍于CPU数量（List类型）。最大值和最小值设置成一致的。
 
-![]({{ site.BASE_PATH }}/assert/img/bmc-performance-tuning-img1.png)
+![]({{ site.BASE_PATH }}/assets/img/bmc-performance-tuning-img1.png)
 
 这里的建议只是个开始。由于硬件差异很大，比如CPU架构，CPU速度等。BMC推荐“因地制宜”。
 

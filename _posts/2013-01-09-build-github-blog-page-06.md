@@ -65,9 +65,9 @@ $ git clone https://github.com/plusjade/jekyll-bootstrap.git
 
 静态的网站不可能自己存放评论，于是只能考虑外挂评论了，查了一下比较靠谱和广泛的就是`DISQUS`了;
 
-点击![]({{ site.BASE_PATH }}/assert/img/build-github-blog-page-06-img0.png)，在下面的页面中填写相关的信息，注意先在右侧注册登录信息，然后再在左侧增加一个站点：
+点击![]({{ site.BASE_PATH }}/assets/img/build-github-blog-page-06-img0.png)，在下面的页面中填写相关的信息，注意先在右侧注册登录信息，然后再在左侧增加一个站点：
 
-![]({{ site.BASE_PATH }}/assert/img/build-github-blog-page-06-img1.png)
+![]({{ site.BASE_PATH }}/assets/img/build-github-blog-page-06-img1.png)
 
 
 填写完成后点击`Continue`，在接下来的页面中选择`Universal Code`，然后根据提示完成接下来的操作，后面的操作就十分简单了：主要就是把产生的脚本文件复制到你的站点页面中即可。
@@ -92,19 +92,19 @@ google的站内搜索叫：[custome search engine](http://www.google.com/cse)
 
 进入地址：<https://www.google.com/webmasters/tools/home>
 
-点击![]({{ site.BASE_PATH }}/assert/img/build-github-blog-page-06-img5.png)
+点击![]({{ site.BASE_PATH }}/assets/img/build-github-blog-page-06-img5.png)
 
 
 Webmaster Tools需要认证你的站点，它会自动检测你的域名提供商，并给出详细的步骤执导你如何配置。我的域名提供商是goddady，所以将看到如下提示：
 
-![]({{ site.BASE_PATH }}/assert/img/build-github-blog-page-06-img2.png)
+![]({{ site.BASE_PATH }}/assets/img/build-github-blog-page-06-img2.png)
 
 
 需要我在DNS记录中增加一条TXT记录，于是我照做了。设置完成之后基本上立刻就生效了，无需等待一天。
 
 认证成功后，在面板中打开你的网站：
 
-![]({{ site.BASE_PATH }}/assert/img/build-github-blog-page-06-img4.png)
+![]({{ site.BASE_PATH }}/assets/img/build-github-blog-page-06-img4.png)
 
 打开`Optimization`->`Sitemaps`，点击`Add/TEST SITEMAP`，输入指向你的站点的sitemap地址，本博客的sitemap是：<http://pchou.info/sitemap.txt>
 
@@ -131,3 +131,7 @@ Webmaster Tools需要认证你的站点，它会自动检测你的域名提供�
 > [一步步在GitHub上创建博客主页(5)]({% post_url 2013-01-07-build-github-blog-page-05 %})
 >
 > 一步步在GitHub上创建博客主页(6)
+> 
+> [一步步在GitHub上创建博客主页(7)]({% post_url 2013-01-20-build-github-blog-page-07 %})
+> 
+> [一步步在GitHub上创建博客主页-最新版]({% post_url 2014-07-04-build-github-blog-page-08 %})
