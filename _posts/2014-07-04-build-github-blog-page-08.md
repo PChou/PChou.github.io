@@ -70,7 +70,7 @@ $ gem install bundler
 
 在更目录下创建一个叫`Gemfile`的文件，注意没有后缀，输入
 
-{% highlight raw %}
+{% highlight bash %}
 source 'http://ruby.taobao.org/'
 gem 'github-pages'
 {% endhighlight %}
@@ -97,7 +97,7 @@ $ bundle exec jekyll serve
 
 ## 使用现成的模板 ##
 
-博客基于`jekyll`，而新手往往摸不着头脑，幸好有一些[现成的模板](jekyllthemes.org)可以直接使用：
+博客基于`jekyll`，而新手往往摸不着头脑，幸好有一些[现成的模板](http://jekyllthemes.org)可以直接使用：
 
 ![](http://pchou.qiniudn.com/2014-07-04-build-github-blog-page-08-img-00.jpg)
 

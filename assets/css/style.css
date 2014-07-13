@@ -133,7 +133,6 @@ article.home div a:hover, article.home pre a:hover { color: #2c3e50; text-decora
 article img { max-width: 100%; }
 
 #sideBar {
-	position: fixed;
 	margin-top: 30px;
 }
 

@@ -150,22 +150,24 @@ var BlogDirectory = {
 };
 
 
-$( document ).ready(function() {
+jQuery(function($) {
+    $(document).ready( function() {
+    /* Sidebar height set */
+        //$('.sidebar').css('min-height',$(document).height());
 
-	/* Sidebar height set */
-	//$('.sidebar').css('min-height',$(document).height());
+        /* qrcode */
+        var opt = { text : window.location.href, width:150, height:150 };
+        try {
+            document.createElement("canvas").getContext("2d");
+        } catch (e) {
+            $.extend(opt,{ render : "table" });
+        }
 
-	/* qrcode */
-	var opt = { text : window.location.href, width:150, height:150 };
-	try {
-		document.createElement("canvas").getContext("2d");
-	} catch (e) {
-		$.extend(opt,{ render : "table" });
-	}
+        $('.qrcode').html('').qrcode(opt);
 
-	$('.qrcode').html('').qrcode(opt);
-
-	/*页面加载完成之后生成博客目录*/
-    BlogDirectory.createBlogDirectory($("#article_body"),"h2","h3",10);
-
+        /*页面加载完成之后生成博客目录*/
+        BlogDirectory.createBlogDirectory($("#article_body"),"h2","h3",10);
+        //stick
+        $('#sideBar').stickUp();
+    });
 });
