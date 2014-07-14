@@ -100,6 +100,13 @@ body{
   margin: 0 0 20px;
 }
 
+@media(min-width:768px){
+  .pager li.hidden-xs{
+    display: inline!important;
+  }
+}
+
+
 article .share .facebook:hover {
 	color: #43609C;
 	border-color: #43609C;
