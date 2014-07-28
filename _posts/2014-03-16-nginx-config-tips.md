@@ -114,6 +114,10 @@ yamdi -i a_without_meta.flv -o b_with_meta.flv
 .../b_with_meta.flv?start=37682252
 {% endhighlight %}
 
+### 附件批量打包下载 ###
+
+利用第三方模块[mod_zip](https://github.com/evanmiller/mod_zip)。详见[利用Nginx第三方模块，实现附件打包下载]({% post_url 2014-07-28-nginx-mod-zip %})
+
 
 ## Nginx作为反向代理 ##
 
