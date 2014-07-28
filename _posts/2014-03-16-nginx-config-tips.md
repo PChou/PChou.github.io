@@ -116,7 +116,9 @@ yamdi -i a_without_meta.flv -o b_with_meta.flv
 
 
 ## Nginx作为反向代理 ##
+
 ### 一个IP多个域名 ###
+
 如果只有一个公网IP，但是网站功能需要划分为多个不同的子网站或者子域名，可以用Nginx来搭建反向代理来“复用”IP资源。假设有如下几个域名都是abc.com这个主域的：
 
 {% highlight html %}
