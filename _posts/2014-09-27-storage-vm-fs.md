@@ -1,8 +1,8 @@
 ---
 layout: postlayout
-title: 存储技术之磁盘冗余阵列(RAID)
+title: 存储技术之卷管理和文件系统
 categories: [hardware]
-tags: [Hardware,storage,RAID]
+tags: [Hardware,storage,VM,FileFystem]
 ---
 
 存储技术如今已经越来越重要，而且在云计算时代，涌现出了很多专注于云存储的厂商。存储技术本身也十分复杂，从硬件到协议到软件到接口几乎覆盖计算机科学的方方面面。笔者借助《大话存储II》这本书，开始了这块知识空白的补充。本文的图片均来源于网络。
