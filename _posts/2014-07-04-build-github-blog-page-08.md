@@ -63,7 +63,7 @@ tags: [github-page, jekyll]
 直接使用下面命令即可：
 
 {% highlight bash %}
-$ gem install bundler
+$ gem install bundle
 {% endhighlight %}
 
 ### Gemfile和Bundle安装
