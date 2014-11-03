@@ -188,7 +188,7 @@ ping动态的IP
 
 分页只可用在html页面中，不能用在markdown
 
-只需在`_comfig.yml`中配置如下两个参数即可
+只需在`_config.yml`中配置如下两个参数即可
 
 {% highlight yaml %}
 paginate: 5 # 指定每页多少条
