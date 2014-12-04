@@ -60,19 +60,17 @@ tags: [github-page, jekyll, liquid]
 
 对于基于静态页面的网站，你显然不希望每篇文章都要写html、head等与文章本身无关的重复的东西，那么容易想到的是将这些东西作为模板提取出来，以便复用，_layouts文件夹中的文件可以作为这样的模板。现在我们在_layouts文件夹中创建一个模板文件，default.html：
 
-{% highlight html %}
-
-<html>
-   <head>
-       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-       <title>My blog</title>
-   </head>
-   <body>
-   {{content }}
-   </body>
-<html>
-
-{% endhighlight %}
+<pre>
+<code>&#60;html>
+   &#60;head>
+       &#60;meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+       &#60;title>My blog&#60;/title>
+   &#60;/head>
+   &#60;body>
+   &#123;{content }}
+   &#60;/body>
+&#60;html></code>
+</pre>
 
 default.html包含了每个html都需要的一些标记，以及一个个`liquid`标记。{% raw %}`{{ … }}`{% endraw %}是liquid中用来表示“内容”的标记，其中的对象在解析时会被替换成文件到页面中
 
