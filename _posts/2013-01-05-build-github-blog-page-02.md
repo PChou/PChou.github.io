@@ -85,7 +85,7 @@ $git checkout --orphan gh-pages
 　<title>一步步在GitHub上创建博客主页(2)</title>
 </head>
 <body>
-　
+　{{content }}
 </body>
 </html>
 {% endhighlight %}
