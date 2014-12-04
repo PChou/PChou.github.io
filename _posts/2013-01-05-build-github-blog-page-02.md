@@ -101,6 +101,14 @@ title: test title
 <p>Hello world!</p>
 {% endhighlight %}
 
+编辑_config.yml
+
+{% highlight bash %}
+
+encoding: utf-8
+
+{% endhighlight %}
+
 再次打开Git Bash，先后输入如下命令：
 
 {% highlight bash %}
