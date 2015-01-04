@@ -2,7 +2,8 @@
 
 paginate: 10 # pagination based on number of posts
 paginate_path: "page:num" #pagination generated sub path format
-pygments: true #for support {% highlight %}
+#pygments: true #for support {% highlight %}
+highlighter: pygments
 markdown: kramdown #use kramdown to parse markdown
 encoding: utf-8
 
