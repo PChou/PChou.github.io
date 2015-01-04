@@ -93,13 +93,15 @@ $git checkout --orphan gh-pages
 
 编辑index.html
 
-{% highlight html %}
----
+<pre>
+<code>
+&#45;&#45;&#45;
 layout: default
 title: test title
----
-<p>Hello world!</p>
-{% endhighlight %}
+&#45;&#45;&#45;
+Hello world!
+</code>
+</pre>
 
 编辑_config.yml
 
