@@ -93,15 +93,7 @@ $git checkout --orphan gh-pages
 
 编辑index.html
 
-<pre>
-<code>
-&#45;&#45;&#45;
-layout: default
-title: test title
-&#45;&#45;&#45;
-Hello world!
-</code>
-</pre>
+
 
 编辑_config.yml
 
