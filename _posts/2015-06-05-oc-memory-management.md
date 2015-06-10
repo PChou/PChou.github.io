@@ -139,6 +139,6 @@ OC发明了自动释放池的概念，上面的代码可以这样写：
 参考资料如下：
 
 [转向ARC的说明——翻译Apple官方文档](http://blog.csdn.net/hherima/article/details/16356577)
-
+[Objective-C Autorelease Pool 的实现原理](http://blog.leichunfeng.com/blog/2015/05/31/objective-c-autorelease-pool-implementation-principle/)
 
 本文总结了关于Objective-c中的内存管理方面的基础内容，希望对初学者有个启发
