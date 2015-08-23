@@ -81,7 +81,7 @@ extension=/usr/lib/php/extensions/no-debug-non-zts-xxxxxx/memcache.so
 
 打开`phpinfo()`页面，查看`memcache`是否已经加载成功：
 
-![](http://s14.sinaimg.cn/middle/6b02f58ax99c86e5290ad&690)
+![](http://pchou.qiniudn.com/osx-php-memcache-yii-00.jpg)
 
 
 ## 设置yii
