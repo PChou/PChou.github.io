@@ -165,3 +165,20 @@ article img { max-width: 100%; }
 #sideBarContents dd:hover, dt:hover {
     color:#1abc9c;
 }
+
+.alipay-qcode-container {
+  width: 160px;
+  height: 160px;
+  position: relative;
+  border: 5px solid #EA5F00;
+  border-radius: 10px;
+}
+
+.alipay-qcode-container img {
+  display: block;
+  width: 140px;
+  height: 140px;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
