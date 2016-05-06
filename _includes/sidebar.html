@@ -1,12 +1,11 @@
-<!-- 
 <header class="sidebar-header" role="banner">
-	<a href="{{ site.BASE_PATH }}/">
-		<img src="http://www.gravatar.com/avatar/{{site.author.email_md5}}?s=150" class="img-circle" />
+	<a href="#">
+		<img src="http://pchou.qiniudn.com/my-avatar.jpg" class="img-circle" style="width:50%;"/>
 	</a>
 	<h3 class="title">
         <a href="{{ site.BASE_PATH }}/">{{ site.title }}</a>
     </h3>
-</header> -->
+</header>
 
 {% if site.author.bio %}
 <div id="bio" class="text-center">
@@ -15,27 +14,26 @@
 {% endif %}
 
 <div class='navigator text-center'>
-	<a href='/index.html' title='首页'>&#xf012b;</a>
-	<a href='/rss.xml' title='RSS订阅'>&#xf01bc;</a>
+	<a href='/index.html' title='首页' class="fa fa-home"></a>
+	<a href='/rss.xml' title='RSS订阅' class="fa fa-rss"></a>
 	<!-- <a href='/me.html' title='关于我'>&#xf00cc;</a> -->
-	<a href='/series.html' title='系列文章'>&#xf0161;</a>
+	<!--<a href='/series.html' title='系列文章' class="fa fa-bookmark"></a> -->
+	<a href='/category.html' title='分类' class="fa fa-folder-open"></a>
+	<a href='/tag.html' title='标签' class="fa fa-tag"></a>
 </div>
 
-<div class='category'>
-	<ul>
-		{% for cat in site.categories %}
-			<li><a href="{{ site.BASE_PATH }}/category.html#{{ cat[0] }}">{{ cat[0] }}<span>{{ cat[1].size }}</span></a></li>
-		{% endfor %}
-	</ul>
+<div class="series-block text-center">
+
+{% for collection in site.collections %}
+	{% if collection.label != 'posts' %}
+		<p><a href="{{ collection.docs[0].url }}">{{ collection.title }}</a></p>
+	{% endif %}
+{% endfor %}
 </div>
 
-<div class='tags'>
-	{% for tag in site.tags %}
-		<a href="{{ site.BASE_PATH }}/tag.html#{{ tag[0] }}" style='font-size:{{ tag[1].size | times: 2 | plus: 15  }}px;'>{{ tag[0] }}</a>
-	{% endfor %}
-</div>
+
 <div class='foot text-center'>
-	<p>Powered by</p><p><a href='https://github.com/'>Github</a> <a href='http://jekyllrb.com/'>jekyll</a> <a href="http://www.bootcss.com/">bootstrap</a> <a href="http://typo.sofi.sh/">typo.css</a> <a href="http://jekyllthemes.org/themes/dbyll/">Dbyll</a> <a href="http://disqus.com" class="dsq-brlink">Disqus</a>
+<p>Powered by</p><p><a href='https://github.com/'>Github</a> <a href='http://jekyllrb.com/'>jekyll</a> <a href="http://www.bootcss.com/">bootstrap</a> <a href="http://typo.sofi.sh/">typo.css</a> <a href="http://jekyllthemes.org/themes/dbyll/">Dbyll</a> <a href="http://disqus.com" class="dsq-brlink">Disqus</a>
     <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1258548781'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1258548781' type='text/javascript'%3E%3C/script%3E"));</script>
     </p>
 </div>

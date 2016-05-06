@@ -34,8 +34,10 @@ body{
 
 .sidebar .navigator a {
     padding: 10px;
-    font-family: 'iconfont';
-    -display: inline-block;
+    width: 36px;
+    height: 36px;
+    -font-family: 'iconfont';
+    display: inline-block;
     border-radius: 50% 50% 50% 50%;
     color: #aaaaaa;
     border: 1px solid #000;
@@ -82,6 +84,22 @@ body{
     .sidebar .tags a:focus, .sidebar .tags a:hover {
       color: white;
       text-decoration: underline; }
+
+.sidebar .series-block {
+    font-size: 15px;
+    margin-top: 30px;
+}
+
+.sidebar .series-block a {
+  color: #fff;
+}
+
+
+.sidebar .foot {
+  font-size: 11px;
+  margin-top: 20px;
+}
+
 .sidebar .foot a {
   color: #aaaaaa;
   text-decoration: none; }
@@ -118,6 +136,11 @@ article .share .gplus:hover {
 
 article{
 	margin-bottom: 40px;
+}
+
+.article_series {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .article_body{

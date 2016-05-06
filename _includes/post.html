@@ -16,6 +16,22 @@
 	   {% endcase %}
 	   {{ page.date | date: "%Y" }}
 	 </small>
+
+	 {% if page.collection and page.collection != 'posts' %}
+	 	<div class="article_series">
+		 {% for collection in site.collections %}
+			{% if collection.label == page.collection %}
+				<div>{{ collection.title }}</div>
+				<ul>
+					{% for doc in collection.docs %}
+						<li><a href="{{ doc.url }}">{{ doc.title }}</a></li>
+					{% endfor %}
+				</ul>
+			{% endif %}
+		{% endfor %}
+		</div>
+	{% endif %}
+
 	  <div class="article_body" id="article_body">
 	  {{ content }}
 	  </div>
