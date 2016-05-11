@@ -90,7 +90,7 @@ Rubygems是类似Radhat的RPM、centOS的Yum、Ubuntu的apt-get的应用程序�
 $ruby setup.rb
 {% endhighlight %}
 
-就像yum仓库一样，仓库本身有很多，如果希望加快应用程序的下载速度，特别绕过“天朝”的网络管理制度，可以选择国内的仓库镜像，taobao有一个：<http://ruby.taobao.org/>。配置方法这个链接里面很完全。
+就像yum仓库一样，仓库本身有很多，如果希望加快应用程序的下载速度，特别绕过“天朝”的网络管理制度，可以选择国内的仓库镜像，taobao有一个：<https://ruby.taobao.org/>。配置方法这个链接里面很完全。
 
  
 

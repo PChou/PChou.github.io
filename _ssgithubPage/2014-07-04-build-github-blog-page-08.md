@@ -71,7 +71,7 @@ $ gem install bundle
 在更目录下创建一个叫`Gemfile`的文件，注意没有后缀，输入
 
 {% highlight bash %}
-source 'http://ruby.taobao.org/'
+source 'https://ruby.taobao.org/'
 gem 'github-pages'
 {% endhighlight %}
 
