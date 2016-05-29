@@ -8,7 +8,7 @@ header: 关于我
 
 5年以上，基础扎实，应用型全栈工程师，Web全栈开发，iOS开发
 
-主要技能第一梯队：`LAMP` `javascript` `HTML5` `.NET(C#)` `SQL Server` `NoSQL` `iOS`
+主要技能第一梯队：`LAMP` `javascript` `HTML5` `.NET(C#)` `SQL Server` `NoSQL` `iOS` `Vim`
 
 主要技能第二梯队：`Nginx` `C` `C++`
 
