@@ -236,5 +236,115 @@ html {
 同时设置了绿色的div2和黄色的div3为浮动，按照上面的理论，div2被拉入浮动流，并向左直到碰到边界。这个浮动流的上边界是div2
 原先的上边界，因为是由于div2的浮动所产生的浮动层；div3也被拉入到div2创造出来的浮动流，于是div3的上边界跟div2一致，并且开始向左浮动，但是由于div3跟div2在同一个层中，div3先碰到了div2，使得无法继续向左，遇到了阻力，所以，div3紧跟在了div2右边。而div4能，好似发现他两个大哥突然消失了一样，向上顶替了老二的位置。于是部分被div2遮住了。
 
-可以看到利用浮动就可以让`块元素`产生左右布局的效果。
+可以看到利用浮动就可以让`块元素`产生左右布局的效果。然而别忘了，上面这个例子中的div4被无情的遮盖住了，所以这可以说是浮动造成的副作用，不过好在解决办法是使用清除浮动：
+
+{% highlight css %}
+
+#div2 {
+  float:left;
+}
+
+#div3 {
+  float:left;
+}
+
+#div4 {
+  clear:both;
+}
+
+{% endhighlight %}
+
+![](http://pchou.qiniudn.com/h5-presentation-3css-11.jpg)
+
+设置div4的`clear:both;`，发现div4不在被覆盖，而是出现在下方，从div3的下边缘的地方开始的位置，这就是`清除浮动`，清除浮动不太好理解。可以认为是`清除浮动的元素周围不能有浮动元素`。如果div4没有清除浮动，那么它将直接跟在div1的下面，从而跟div2这个浮动元素有接触，当设置为清除浮动后，div4不得不跟整个由div2和div3构成的浮动层保持距离，于是就出现在了上图的位置。
+
+在继续下去之前，我们来看一个示例。下面是一个典型三栏网站框架布局：
+
+![](http://pchou.qiniudn.com/h5-presentation-3css-12.jpg)
+
+大体上会采用如下的布局结构：
+
+![](http://pchou.qiniudn.com/h5-presentation-3css-13.jpg)
+
+中间的蓝色div作为容器，包含三个红色的浮动div：
+
+{% highlight html %}
+
+<div class="header">
+</div>
+<div class="center">
+  <div class="left"></div>
+  <div class="main"></div>
+  <div class="right"></div>
+</div>
+<div class="footer">
+</div>
+
+{% endhighlight %}
+
+忽略关于宽度和高度的样式，重点看一下浮动的样式：
+
+{% highlight css %}
+
+.left {
+  float:left;
+}
+
+.main {
+  float:left;
+}
+
+.right {
+  float:left;
+}
+
+.footer {
+  clear:both;
+}
+
+{% endhighlight %}
+
+注意`.footer`，必须是清除浮动的，否则footer将被中间的浮动元素层覆盖掉。这么做有个弊端，就是由于某些元素的浮动，而影响到原先并不需要考虑浮动的元素必须增加多余的`清除浮动`，在复杂布局中这将导致混乱。好在有个很巧妙的方法：
+
+{% highlight css %}
+
+.left {
+  float:left;
+}
+
+.main {
+  float:left;
+}
+
+.right {
+  float:left;
+}
+
+.center:after {
+    content: " ";
+    display:block;
+    clear: both;
+    visibility: hidden;
+    height: 0px;
+}
+
+{% endhighlight %}
+
+注意，我们去掉了`.footer`的清除浮动属性，而去设置了`.center`的伪类`:after`，并给这个after清除浮动和一系列的隐藏属性。这个技巧十分常用，即给浮动行的容器设置类似的属性，可以有效的避免浮动层影响接下来的块元素。
+
+再次强调，本例的代码并没有加入宽高的设置，我建议你亲自尝试补充完整，并尝试为`left` `main` `right`添加边框，你可能会遇到意想不到的状况。记得上面说过的`box-sizing`也许会给你点提示。
+
+
+## 定位
+
+上面介绍了html的流式布局原理，块元素和行元素的区别，也介绍了浮动流可以使块元素得以左右布局。然而，在css中还有一种定位方式十分常见，使用`position属性定位`。`position`可以设置成`fixed` `relative`和`absolute`。
+
+
+
+
+
+
+
+
+
 
