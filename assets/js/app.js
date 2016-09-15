@@ -156,7 +156,7 @@ jQuery(function($) {
         //$('.sidebar').css('min-height',$(document).height());
 
         /* qrcode */
-        var opt = { text : window.location.href, width:150, height:150 };
+        var opt = { text : window.location.href, width:100, height:100 };
         try {
             document.createElement("canvas").getContext("2d");
         } catch (e) {
