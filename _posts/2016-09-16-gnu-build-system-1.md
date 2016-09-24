@@ -26,6 +26,7 @@ tags: [C]
 ### configure
 
 当运行`configure`时，将看到类似如下的系统检查，这些检查的多少取决于软件本身的需要，也就是由软件开发者来定义和编写的。
+
 ```
 checking for a BSD-compatible install... /usr/bin/install -c
 checking whether build environment is sane... yes
