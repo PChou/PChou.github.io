@@ -160,7 +160,7 @@ do {
   ret = deflate(&strm, Z_FINISH);
   //写如结果
   memcpy(result,output,CHUNK-strm.avail_out);
-} while(strm.avail_out == 0 && strm.avail_in != 0);
+} while(strm.avail_out == 0);
 
 deflateEnd(&strm);
 ```
